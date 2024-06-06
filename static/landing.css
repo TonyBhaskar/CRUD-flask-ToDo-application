@@ -1,0 +1,110 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Sen';
+}
+
+span{
+    color: green;
+    font-family: 'Alegreya';
+}
+
+.main-body{
+    background-color: white;
+    height: 100vh;
+}
+
+
+.container{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    text-align: center;
+    background-color:tomato;
+    height: 60px;
+}
+
+.inner-body{
+    display: flex;
+    flex-direction: column;
+    padding: 70px;
+}
+
+.greets{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    align-items: center;
+}
+
+.new-task{
+    align-self: center;
+    padding-bottom: 30px;
+}
+
+button{
+    background-color: green;
+    border: none;
+    color: white;
+    width: 50px;
+    height: 20px;
+    border-radius: 4px;
+}
+button a{
+    text-decoration: none;
+}
+
+button a{
+    color: white;
+}
+
+#task-new{
+    width: 300px;
+}
+
+#add-new-task{
+    width: 70px;
+}
+
+.tasks-container{
+    padding-left: 50px ;
+    padding-right: 50px ;
+    /* border: 2px solid; */
+    text-align: center;
+    width: 100%;
+    background-color: azure;
+    border-radius: 5px;
+}
+
+.tasks-body{
+    display: flex;
+    /* border: 2px solid red; */
+    justify-content: center;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr #task{
+    width: 500px;
+    margin-bottom: 10px;
+}
+
+/* td {
+    word-wrap: break-word;
+    max-width: 150px;
+} */
+
+
+.line{
+    width: 100%;
+    height: 1px;
+    background-color: black;
+}

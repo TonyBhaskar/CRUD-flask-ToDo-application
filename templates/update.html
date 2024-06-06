@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'update.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&family=Sen:wght@400..800&family=Silkscreen:wght@400;700&family=Ultra&display=swap" rel="stylesheet">
+
+    <title>Update Task</title>
+</head>
+<body>
+    <div class="main-body">
+        <div class="container">
+            <div class="title">
+                <h1><span>TaskMaster</span></h1>
+            </div>
+
+
+            <div class="inner-body">
+                <div class="update-task">
+                        <h2>Update Task:</h2>
+                        <form action="/update/{{ todo[0] }}" method="POST">
+                            <!-- <label for="new_todo">Todo:</label><br> -->
+                            <input type="text" id="new_todo" name="new_todo" value="{{ todo[4] }}"><br><br>
+                            <button type="submit">Update</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

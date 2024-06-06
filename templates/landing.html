@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'landing.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&family=Sen:wght@400..800&family=Silkscreen:wght@400;700&family=Ultra&display=swap" rel="stylesheet">
+    <title>Landing Page</title>
+</head>
+<body>
+    <div class="main-body">
+        <div class="container">
+
+            <div class="title">
+                <h1><span>TaskMaster</span></h1>
+            </div>
+
+            <div class="inner-body">
+                <div class="greets">
+                    <h1>Welcome, <span>{{ user_name }}!</span></h1>
+                    <button id="logout"><a href="/logout">Logout</a></button>
+                </div>
+
+                <div class="new-task">
+                    <form method="POST">
+                        <input type="text" name="new_todo" placeholder=" + Add New Task" required id="task-new">
+                        <button type="submit" id="add-new-task">Add Task</button>
+                    </form>
+                </div>
+
+                <!--                 tasks container              -->
+
+                {% if todos %}
+                    {% for todo in todos %}
+                    <div class="tasks-body">
+                        <div class="tasks-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Task</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>update</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                    
+                                </thead>
+                                
+                                <tbody>
+                                    
+                                    <tr>
+                                        <td id="task">{{ todo[4] }}</td>
+                                        <td>{{ todo[2] }}</td>
+                                        <td>{{ todo[3] }}</td>
+                                        <td><button id="btns"><a href="/update/{{todo[0]}}">Update</a></button></td>
+                                        <td><button id="btns"><a href="/delete/{{todo[0]}}">Delete</a></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+
+        
+                    {% endfor %}
+                {% else %}
+                    <p>No tasks to show</p>
+                {% endif %}
+
+<!--                end tasks container              -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

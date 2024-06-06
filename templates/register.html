@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&family=Sen:wght@400..800&family=Silkscreen:wght@400;700&family=Ultra&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+    <title>Todo app Register</title>
+</head>
+<body>
+    <div class="main-body">
+        <div class="container">
+            <div class="upper-part">
+                <h2>Sign Up - <span>TaskMaster</span></h2>
+            </div>
+            <div class="lower-part">
+                <form method="post">
+                    <!-- <label for="name">Name:</label> -->
+                    <input type="text" name="name" id="name" required placeholder="Name"><br><br>
+            
+                    <!-- <label for="email">Email:</label> -->
+                    <input type="email" name="email" id="email" required placeholder="Email"><br><br>
+            
+                    <!-- <label for="password">Password:</label> -->
+                    <input type="password" name="password" id="password" required placeholder="Password"><br><br>
+
+                    <!-- Error notification section -->
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                    <script>
+                        // Display browser notification for error message
+                        if ('Notification' in window && Notification.permission === 'granted') {
+                            new Notification('{{ message }}');
+                        }
+                    </script>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                    <!-- End of error notification section -->
+
+                    <button type="submit">Register</button>
+            
+                    <!-- <input type="submit" value="Register"> -->
+                </form>
+                <div class="line"></div>
+                <p>Have an account? <a href="{{ url_for('login') }}"><span>Log in</span></a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

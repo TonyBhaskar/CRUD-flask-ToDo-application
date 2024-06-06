@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'login.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&family=Sen:wght@400..800&family=Silkscreen:wght@400;700&family=Ultra&display=swap" rel="stylesheet">
+    <title>Todo app Login</title>
+</head>
+<body>
+    <div class="main-body">
+
+        <div class="container">
+            <div class="left-side">
+                <h1><span>TaskMaster</span></h1>
+                <p>TaskMaster helps you to maintain your daily schedules</p>
+    
+            </div>
+    
+            <div class="right-side">
+                <!-- <h2>Log In</h2> -->
+                <form method="POST" action="{{ url_for('login') }}">
+                    <!-- <label for="email">Email:</label> -->
+                    <input type="email" id="email" name="email" placeholder="Email" required><br><br>
+                    <!-- <label for="password">Password:</label> -->
+                    <input type="password" id="password" name="password" required placeholder="Password"><br><br>
+
+                    <!-- Error notification section -->
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                    
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                    <!-- End of error notification section -->
+
+                    <button type="submit" id="login-btn">Log in</button>
+                </form>
+                <div class="line"></div>
+                <p id="no-acc">Don't have an account? <a href="{{ url_for('register') }}"><span>Register</span> </a></p>
+            </div>
+    
+        </div>
+    </div>
+</body>
+</html>
